@@ -1,0 +1,13 @@
+name: Print Commit Information
+on:
+  push:
+    branches: 
+      - master
+jobs:
+  print-commit-info:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Print Commit Info
+        run: |
+          git log -1 --pretty=format:"Commit: %H%nAuthor: %an%nDate: %ad%nMessage: %s"
